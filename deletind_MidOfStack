@@ -1,0 +1,34 @@
+//Deleting middle element of stack
+
+//practice........geeksforgeeks
+
+
+
+
+class Solution
+{
+    public:
+    //Function to delete middle element of a stack.
+    int current=0;
+    void deleteMid(stack<int>&s, int sizeOfStack)
+    {
+       int  Middle=ceil(sizeOfStack/2);
+
+        if(Middle==current)
+        {
+            s.pop();
+            return;
+        }
+         
+        //storing the top element in a variable and popping it.
+        int x = s.top();
+        s.pop();
+       current++;
+        //calling the function recursively.
+        deleteMid(s,sizeOfStack);
+         
+        //pushing the elements (except middle element) back
+        //into stack after recursion calls.
+        s.push(x);
+    }
+};
