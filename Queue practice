@@ -19,3 +19,41 @@ queue<int> rev(queue<int> q)
     return q;
     // add code here.
 }
+
+
+
+
+
+
+// Function to reverse first k elements of a queue.
+queue<int> modifyQueue(queue<int> q, int k) {
+    // add code here.
+    stack<int > s;
+    queue <int> q1;
+       int count=1;
+    while(count<=k)
+    {
+        int element=q.front();
+        q.pop();
+        s.push(element);
+        count++;
+    }
+   
+    
+    while(!s.empty())
+    {
+        int element=s.top();
+        s.pop();
+        q1.push(element);
+        
+    }
+   
+    while(!q.empty())
+    {
+         int element=q.front();
+        q.pop();
+        q1.push(element);
+    }
+    
+    return q1;
+}
