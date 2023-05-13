@@ -1,0 +1,41 @@
+Given an integer array nums, find the 
+subarray
+ with the largest sum, and return its sum.
+ 
+ class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int n = nums.size();
+        //maximumSum will calculate our ans and currSumSubarray will calculate maximum sum subarray till ith position 
+        int maximumSum = INT_MIN, currSumSubarray = 0;
+        for (int i = 0; i < n; i++) {
+            currSumSubarray += nums[i]; 
+            maximumSum = max(maximumSum, currSumSubarray);
+            //here we are taking max with 0 bcz if currSumSubarray = -1 or any negative value then it again starts with currSumSubarray = 0
+            currSumSubarray = max(currSumSubarray, 0);
+        } 
+        return maximumSum;
+    }
+};
+
+
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+       // int size;
+       // size=sizeof(nums);
+        for(int i=0;i<nums.size()-1;i++)
+        {
+          if(nums[i]==nums[i+1])
+          
+              return true;
+          
+         
+          
+        }return false;
+    }
+};
